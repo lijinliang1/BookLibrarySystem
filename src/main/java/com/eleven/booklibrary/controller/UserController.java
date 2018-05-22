@@ -84,7 +84,7 @@ public class UserController {
     if (user.getIsAdmin() == 1)
       return "user/admin_center";
     else
-      return "user/user_center";
+      return "user/manage_user";
   }
   
   @RequestMapping(value="manageUser")

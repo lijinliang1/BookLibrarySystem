@@ -19,7 +19,7 @@ public class BookUtil {
     try {
       HttpResponse response = client.execute(request);
       HttpEntity entity = response.getEntity();
-      return new String(EntityUtils.toString(entity).getBytes(), "utf-8");
+      return new String(EntityUtils.toString(entity).getBytes(), "gbk");
     } catch (ClientProtocolException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -38,7 +38,7 @@ public class BookUtil {
     try {
       HttpResponse response = client.execute(request);
       HttpEntity entity = response.getEntity();
-      return new String(EntityUtils.toString(entity).getBytes(), "utf-8");
+      return new String(EntityUtils.toString(entity).getBytes(), "gbk");
     } catch (ClientProtocolException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -57,7 +57,7 @@ public class BookUtil {
     try {
       HttpResponse response = client.execute(request);
       HttpEntity entity = response.getEntity();
-      String content = new String(EntityUtils.toString(entity).getBytes(), "utf-8");
+      String content = new String(EntityUtils.toString(entity).getBytes(), "gbk");
       return content;
     } catch (ClientProtocolException e) {
       // TODO Auto-generated catch block

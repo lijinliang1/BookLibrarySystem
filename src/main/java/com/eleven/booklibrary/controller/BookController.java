@@ -55,7 +55,6 @@ public class BookController {
   
   @RequestMapping(value="/searchBook", method = RequestMethod.GET)
   public String searchBook(String query, String bookType, String page, ModelMap modelMap) {
-    System.out.println("query=" + query);
     List<Book> books = new ArrayList<Book>();
     try {
       Long number = Long.parseLong(query);

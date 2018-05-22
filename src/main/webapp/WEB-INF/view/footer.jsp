@@ -3,8 +3,8 @@
 <div class="container">
 	<hr></hr>
 	<footer>
-		<p>
-			<a href="http://weibo.com/skyhacker" target="_blank">NovemberEleven</a> 2013
+		<p style="text-align:center">
+			©2018 Lijinliang. All rights reserved. 
 		</p>
 	</footer>
 </div>

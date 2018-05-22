@@ -1,5 +1,6 @@
 package com.eleven.booklibrary.controller;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -7,13 +8,16 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eleven.booklibrary.model.Book;
 import com.eleven.booklibrary.model.Borrower;
 import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.vo.BorrowerVo;
+import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.service.BorrowerService;
 import com.eleven.booklibrary.service.BorrowertypeService;
 import com.eleven.booklibrary.util.BookUtil;
@@ -28,6 +32,17 @@ public class BorrowerController {
   
   @Autowired
   private BorrowertypeService borrowertypeService;
+  
+  @RequestMapping(value="/borrower.do", method=RequestMethod.GET)
+  public String book(ModelMap modelMap) {
+    List<Borrower> borrowers = new ArrayList<Borrower>();
+    Pagination pagination = new Pagination();
+    pagination.setCurPage(1L);
+    pagination.setPageSize(8L);
+    borrowers = borrowerService.selectBorrowers(pagination);
+    modelMap.addAttribute("borrowers", borrowers);
+    return "borrower/borrower";
+  }
   
   @RequestMapping(value="/searchBorrower", method = RequestMethod.POST)
   @ResponseBody

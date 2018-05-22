@@ -12,9 +12,8 @@
 			<div class="alert alert-error">${success }</div>
 		</c:when>
 	</c:choose>
-	<div class="hero-unit">
-		<h1>欢迎使用图书管理系统</h1>
-		<p>这是一个为中小图书馆设计的图书管理系统</p>
+	<div class="hero-unit" style="text-align:center;">
+		<h1>欢迎使用图书借阅系统</h1>
 	</div>
 	<div >
 		<div class="span2">

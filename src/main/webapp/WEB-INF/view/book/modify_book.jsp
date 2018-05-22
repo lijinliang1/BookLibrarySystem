@@ -12,6 +12,7 @@
 		pubdate = format.format(book.getPublishDate());
 	}
 %>
+<meta name="referrer" content="never">
 <div class="data-book thumbnail" style="width:50%;float:left;display:block;">
 	<div class="caption">
 		<h1>修改图书</h1>

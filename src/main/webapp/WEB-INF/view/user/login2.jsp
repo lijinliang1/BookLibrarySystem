@@ -11,19 +11,20 @@
 		<meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>管理员登陆</title>
+        <title>用户登录</title>
         <meta name="description" content="Custom Login Form Styling with CSS3" />
         <meta name="keywords" content="css3, login, form, custom, input, submit, button, html5, placeholder" />
         <meta name="author" content="Codrops" />
 
         <link rel="shortcut icon" href="../favicon.ico"> 
         <link rel="stylesheet" type="text/css" href="${basePath }css/style.css" />
+       	<link rel="stylesheet" type="text/css" href="${basePath }css/iconfont.css" />
 		<script src="${basePath }js/modernizr.custom.63321.js"></script>
 		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 		<style>	
 			@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
 			body {
-				background: #7f9b4e url(${basePath}img/login.jpg) no-repeat center top;
+				background:  url(${basePath}img/login.jpg) no-repeat center top;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				background-size: cover;
@@ -38,8 +39,8 @@
     <body>
         <div class="container">
 			<div class="codrops-top">
-                <a href="${basePath }index.do">
-                    <strong>&laquo; 返回首页</strong>
+                <a href="${basePath }index.do" >
+                   <strong class="iconfont back">&#xe6e9;</strong>
                 </a>
 
             </div>
@@ -50,10 +51,10 @@
 			</header>
 			<section class="main">
 				<form class="form-4" method="post" action="login.do">
-				    <h1>管理员登陆<small style="color:red;">${error }</small></h1>
+				    <h1>用户登录<small style="color:red;">${error }</small></h1>
 				    <p>
-				        <label for="login">管理员账号</label>
-				        <input type="text" name="username" placeholder="管理员账号" required>
+				        <label for="login">用户账号</label>
+				        <input type="text" name="username" placeholder="用户名" required>
 				    </p>
 				    <p>
 				        <label for="password">密码</label>
@@ -61,7 +62,7 @@
 				    </p>
 
 				    <p>
-				        <input type="submit" name="submit" value="登陆">
+				        <input type="submit" name="submit" value="登录">
 				    </p>       
 				</form>​
 			</section>

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
 <%@ include file="../header.jsp"%>
+<meta name="referrer" content="never">
 <style>
 	.p1{
 		color:#666666;
@@ -13,7 +14,8 @@
 	<hr>
 	<div>
 		<div style="float:left;">
-			<img class="book-img" src="${basePath }img/loading.gif" style="width:200px;height=:auto;">
+			<img class="book-img" src="${basePath }img/loading.gif" style="width:200px;height=:auto;"> 
+			<!-- <img style="width: 100px;height: 100px;margin-right: 10px;" name="5978017" class="book-image pull-left span2 clearfix" src="https://img1.doubanio.com/view/subject/l/public/s6284999.jpg"> -->
 		</div>
 		<div style="float:left;margin-left:10px;">
 			<p><span class="p1">书号: </span><span class="book-number">${book.bookNumber }</span></p>

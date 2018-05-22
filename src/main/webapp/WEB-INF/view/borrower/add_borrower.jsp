@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<form class="form-horizontal add-borrower-form">
+<form class="form-horizontal add-borrower-form" action="${basePath}borrower/addBorrower" method="post">
 	<div class="control-group">
 		<label class="control-label" for="inputCardNumber">借阅者卡号</label>
 		<div class="controls">

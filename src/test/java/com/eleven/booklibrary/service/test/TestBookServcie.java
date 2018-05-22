@@ -1,7 +1,6 @@
 package com.eleven.booklibrary.service.test;
 
 import java.util.Date;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.eleven.booklibrary.dao.BookMapper;
-import com.eleven.booklibrary.model.Book;
-import com.eleven.booklibrary.model.BookExample;
 import com.eleven.booklibrary.model.vo.BookVo;
-import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.service.BookService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,24 +18,20 @@ public class TestBookServcie {
   @Autowired
   private BookService bookService;
   
-  @Autowired
-  private BookMapper bookMapper;
-  
   @Test
   public void testInsertBook() {
-    BookVo vo = new BookVo();
-    vo.setBookNumber(103L);
-    vo.setBookName("Java编程思想");
-    vo.setAuthor("陈洪晶");
-    vo.setPublisher("工业出版社");
-    vo.setPublishDate(new Date(2013, 10, 19));
-    vo.setPrice(100L);
-    vo.setBookType("编程");
-    vo.setStoreLocation("DL2091");
-    vo.setStoreDate(new Date(2013, 10, 20));
-    vo.setNumber(10);
-    vo.setBorrowedNumber(1);
-    bookService.insertBook(vo);
+	  BookVo vo = new BookVo();
+	  vo.setBookNumber(104L);
+	  vo.setBookName("linux编程思想");
+	  vo.setAuthor("陈洪晶");
+	  vo.setPublisher("工业出版社");
+	  vo.setPriceVo("10.00");
+	  vo.setBookType("编程");
+	  vo.setStoreLocation("DL2091");
+	  vo.setNumber(10);
+	  vo.setBorrowedNumber(1);
+	  vo.setPubdate("2017-12-1");
+	  bookService.insertBook(vo);
   }
   /*
   @Test

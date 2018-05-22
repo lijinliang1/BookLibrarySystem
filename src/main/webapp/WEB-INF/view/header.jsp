@@ -11,8 +11,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>${title}- 图书管理系统</title>
+<title>${title}- 图书借阅系统</title>
 <link rel='stylesheet' href='${basePath}css/bootstrap.css' />
+	<link rel="stylesheet" type="text/css" href="${basePath }css/iconfont.css" />
 
 <style type="text/css">
 body {
@@ -49,7 +50,8 @@ body {
 				<a class="btn btn-navbar" data-toggle="collapse"
 					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand" href="${basePath}index.do">图书管理系统</a>
+				</a> 
+				<a class="brand iconfont" href="${basePath}index.do">&#xe629;&nbsp;&nbsp;图书借阅系统</a>
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="li-shouye"><a href="${basePath}index.do">首页</a></li>

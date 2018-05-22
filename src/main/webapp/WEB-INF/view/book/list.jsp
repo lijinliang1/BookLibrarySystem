@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <style>
+<meta name="referrer" content="never">
 div {  
  white-space:nowrap;  
  text-overflow:ellipsis;  

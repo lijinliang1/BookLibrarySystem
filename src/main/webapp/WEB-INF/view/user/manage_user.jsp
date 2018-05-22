@@ -25,6 +25,7 @@
 						<input id="input-password"  type="text" name="password" placeholder="密码">
 						<select name="isAdmin" class="span2">
 							<option value="1">管理员</option>
+							<option value="2">普通用户</option>
 						</select>
 						<a class="btn btn-success add-user">添加</a>
 						<span class="help-inline"></span>
@@ -38,7 +39,7 @@
 					<tr>
 						<th>序号</th>
 						<th>用户名称</th>
-						<th>密码</th>
+						<!-- <th>密码</th> -->
 						<th>类型</th>
 						<th>操作</th>
 					</tr>
@@ -46,9 +47,9 @@
 				<tbody>
 					<c:forEach var="t" items="${userList }" varStatus="status">
 						<tr>
-							<td>${status.index }</td>
+							<td>${status.index + 1 }</td>
 							<td class="user-name">${t.username }</td>
-							<td>${t.password }</td>
+							<%-- <td>${t.password }</td> --%>
 							<td>管理员</td>
 							<td><a href="javascript:void(0);" onclick="deleteUser('${t.username}')" class="btn btn-danger">删除</a></td>
 						</tr>

@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ include file="../header.jsp"%>
+<meta name="referrer" content="never">
 
 <div class="container">
 	<form class="form-search book-form-search" action="searchBookUser.do"

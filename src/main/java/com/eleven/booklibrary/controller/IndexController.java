@@ -25,7 +25,7 @@ public class IndexController {
   @RequestMapping("/index.do")
   public String index(HttpServletRequest request, ModelMap map) {
     request.getSession().setAttribute("title", "首页");
-    List<Book> book = bookService.selectNewBooks(8);
+    List<Book> book = bookService.selectNewBooks(6);
     List<Booktype> bookTypes = bookTypeService.selectBooktype();
     map.addAttribute("bookTypes", bookTypes);
     map.addAttribute("books", book);

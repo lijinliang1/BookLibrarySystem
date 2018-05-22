@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<meta name="referrer" content="never">
 <div class="data-book thumbnail span6 clearfix">
 	<div class="caption clearfix">
 		<h1>添加图书</h1>

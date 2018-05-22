@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
     
 <%@ include file="../header.jsp" %>
+<meta name="referrer" content="never">
 <div class="container">
 	<div class="tabbable">
 		<ul class="nav nav-tabs">

@@ -46,7 +46,7 @@
 				<tbody>
 					<c:forEach var="t" items="${typeList }" varStatus="status">
 						<tr>
-							<td>${status.index }</td>
+							<td>${status.index + 1 }</td>
 							<td class="type-name">${t.type }</td>
 							<td>${t.borrowDay }</td>
 							<td>${t.dayFine }角</td>

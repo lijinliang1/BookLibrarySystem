@@ -4,6 +4,7 @@
 <%@ page import="com.eleven.booklibrary.model.Book" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<meta name="referrer" content="never">
 <%
 	Book book = (Book)request.getAttribute("book");
 	String pubdate = null;
