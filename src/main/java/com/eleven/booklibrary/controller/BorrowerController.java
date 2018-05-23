@@ -33,17 +33,6 @@ public class BorrowerController {
   @Autowired
   private BorrowertypeService borrowertypeService;
   
-  @RequestMapping(value="/borrower.do", method=RequestMethod.GET)
-  public String book(ModelMap modelMap) {
-    List<Borrower> borrowers = new ArrayList<Borrower>();
-    Pagination pagination = new Pagination();
-    pagination.setCurPage(1L);
-    pagination.setPageSize(8L);
-    borrowers = borrowerService.selectBorrowers(pagination);
-    modelMap.addAttribute("borrowers", borrowers);
-    return "borrower/borrower";
-  }
-  
   @RequestMapping(value="/searchBorrower", method = RequestMethod.POST)
   @ResponseBody
   public Object searchBorrower(String cardNumber, String borrowerType) {

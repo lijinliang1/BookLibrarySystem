@@ -105,8 +105,8 @@ public class UserController {
   
   @RequestMapping(value="deleteUser", method=RequestMethod.POST)
   @ResponseBody
-  public String deleteUser(String name) {
-    userService.deleteUser(name);
+  public String deleteUser(String username) {
+    userService.deleteUser(username);
     return "200";
   }
 }

@@ -155,8 +155,6 @@ public class BookController {
   
   @RequestMapping(value="/searchBookUser", method=RequestMethod.POST)
   public String searchBookUser(String name, String type, String page, ModelMap map) {
-    System.out.println("name=" + name);
-    System.out.println("type=" + type);
     Pagination pagination = new Pagination();
     if (!StringUtils.isEmpty(page)) {
       pagination.setCurPage(Long.parseLong(page));

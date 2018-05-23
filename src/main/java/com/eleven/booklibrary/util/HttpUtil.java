@@ -105,10 +105,6 @@ public class HttpUtil {
     public static String sendGet(String url) {
 
         HttpGet httpget = new HttpGet(url);
-        httpget.setHeader("Host", "api.douban.com");  
-        httpget.setHeader(  
-                "User-Agent",  
-                "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36");
         httpget.setConfig(requestConfig);
         CloseableHttpResponse response = null;
         try {

@@ -46,7 +46,7 @@
             </div>
         	<header>
 			
-				<h1>图书管理系统</h1>
+				<h1>图书借阅系统</h1>
 
 			</header>
 			<section class="main">

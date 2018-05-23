@@ -14,12 +14,12 @@ public class BookUtil {
   public static String isbnUrl = "https://api.douban.com/v2/book/isbn/";
   public static String idUrl = "https://api.douban.com/v2/book/";
   public static String getBookByISBN(String isbn) {
-    DefaultHttpClient client = new DefaultHttpClient();
+    /*DefaultHttpClient client = new DefaultHttpClient();
     HttpGet request = new HttpGet(isbnUrl + isbn);
     try {
       HttpResponse response = client.execute(request);
       HttpEntity entity = response.getEntity();
-      return new String(EntityUtils.toString(entity).getBytes(), "gbk");
+      return new String(EntityUtils.toString(entity).getBytes(), "utf-8");
     } catch (ClientProtocolException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -29,11 +29,12 @@ public class BookUtil {
     } finally {
       client.getConnectionManager().shutdown();
     }
-    return null;
+    return null;*/
+	  return HttpUtil.sendGet(isbnUrl + isbn);
   }
   
   public static String getBookImage(String id) {
-    HttpClient client = new DefaultHttpClient();
+   /* HttpClient client = new DefaultHttpClient();
     HttpGet request = new HttpGet(idUrl + id + "?fields=images");
     try {
       HttpResponse response = client.execute(request);
@@ -48,11 +49,12 @@ public class BookUtil {
     } finally {
       client.getConnectionManager().shutdown();
     }
-    return null;
+    return null;*/
+	  return HttpUtil.sendGet(idUrl + id + "?fields=images");
   }
   
   public static String getBookInfo(String id) {
-    HttpClient client = new DefaultHttpClient();
+    /*HttpClient client = new DefaultHttpClient();
     HttpGet request = new HttpGet(idUrl + id);
     try {
       HttpResponse response = client.execute(request);
@@ -68,6 +70,7 @@ public class BookUtil {
     } finally {
       client.getConnectionManager().shutdown();
     }
-    return null;
+    return null;*/
+	  return HttpUtil.sendGet(idUrl + id);
   }
 }

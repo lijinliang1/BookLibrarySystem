@@ -8,7 +8,7 @@
 			<li><a href="${basePath}user/user_center.do">借阅者管理</a></li>
 			<li><a href="${basePath}book/book.do">图书管理</a></li>
 			<li><a href="${basePath}borrow/borrow.do">借阅管理</a></li>
-			<li><a href="${basePath }type/borrowerType.do">借阅者类别管理</a></li>
+			<li><a href="${basePath}user/user_center.do">借阅者类别管理</a></li>
 			<li><a href="${basePath }type/bookType.do">图书类别管理</a></li>
 			<li class="active"><a href="${basePath }user/manageUser.do">用户管理</a></li>
 		</ul>
@@ -50,8 +50,12 @@
 							<td>${status.index + 1 }</td>
 							<td class="user-name">${t.username }</td>
 							<%-- <td>${t.password }</td> --%>
-							<td>管理员</td>
-							<td><a href="javascript:void(0);" onclick="deleteUser('${t.username}')" class="btn btn-danger">删除</a></td>
+							<td>
+								<c:if test="${t.isAdmin == 1 }">管理员</c:if>
+								<c:if test="${t.isAdmin == 2 }">普通用户</c:if>
+							</td>
+							<td><button class="btn btn-danger user-delete" username="${t.username }">删除</button></td>
+							
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -89,10 +93,21 @@
 		$(".control-group").removeClass("error");
 		$(".add-user").next().html("");
 	});
-	function deleteUser(name) {
-		$.post(baseUrl + "user/deleteUser.do",{name:name},
-			function(data) {
-				window.location.href = baseUrl + "user/manageUser.do";
-		},'json');
-	}
+	
+	$(".user-delete").click(function() {
+		if (!confirm("确定删除吗？"))
+			return;
+		var username = $(this).attr("username");
+		$.post(baseUrl + "user/deleteUser.do",{username:username},
+				function(data){
+					if (data == '200') {
+						$("#"+username).html('<div class="alert alert-success">删除成功</div>');
+						setTimeout(function(){
+							$("#"+username).hide();
+						}, 2000);
+						window.location.href = baseUrl + "user/manageUser.do";
+					}
+				},'json'
+		);
+	});
 </script>

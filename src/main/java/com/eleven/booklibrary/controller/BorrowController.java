@@ -103,7 +103,7 @@ public class BorrowController {
     Borrower borrower = borrowerService.selectBorrowerByCardNumber(borrowerNumber);
     BorrowVo vo = new BorrowVo();
     vo.setBookNumber(bookNumber);
-    vo.setBorrowerNumber(borrowerNumber);
+    vo.setBorrowerNumber(borrowerNumber); 
     vo.setBookName(book.getBookName());
     vo.setBorrowerName(borrower.getName());
     vo.setBorrowedDate(Calendar.getInstance().getTime());
