@@ -8,27 +8,29 @@ import com.eleven.booklibrary.model.vo.Pagination;
 
 public interface BookService {
   
-  public void insertBook(BookVo vo);
+	public void insertBook(BookVo vo);
   
-  public List<Book> selectBookByName(String name, String type, Pagination pagination);
+    public List<Book> selectBookByName(String name, String type, Pagination pagination);
+    
+    public List<Book> selectBookList(Pagination pagination);
   
-  public void updateBook(BookVo vo, Long bookNum);
+    public void updateBook(BookVo vo, Long bookNum);
   
-  public void deleteBookByBookNumber(long num);
+    public void deleteBookByBookNumber(long num);
   
-  public Book selectBookByBookNumber(long num);
+    public Book selectBookByBookNumber(long num);
   
-  public int countByName(String bookName);
+    public int countByName(String bookName);
   
-  public Pagination count(String name, String type, Pagination pagination);
+    public Pagination count(String name, String type, Pagination pagination);
   
-  /**
-   * 根据书号和类别查找图书
-   * @param num
-   * @param type
-   * @return
-   */
-  public Book selectBook(long num, String type);
+    /**
+     * 根据书号和类别查找图书
+     * @param num
+     * @param type
+     * @return
+     */
+    public Book selectBook(long num, String type);
   
-  public List<Book> selectNewBooks(int num);
+    public List<Book> selectNewBooks(int num);
 }

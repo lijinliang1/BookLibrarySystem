@@ -170,6 +170,18 @@
 		    <artifactId>jedis</artifactId>
 		    <version>${jedis.version}</version>
 		</dependency>
+		<!--lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version>
+		</dependency>
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.47</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>BookLibrarySystem</finalName>

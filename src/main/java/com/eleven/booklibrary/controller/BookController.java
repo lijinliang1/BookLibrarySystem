@@ -3,17 +3,18 @@ package com.eleven.booklibrary.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.eleven.booklibrary.dao.BookMapper;
+import com.alibaba.fastjson.JSON;
 import com.eleven.booklibrary.model.Book;
+import com.eleven.booklibrary.model.BookExample;
 import com.eleven.booklibrary.model.Booktype;
 import com.eleven.booklibrary.model.vo.BookVo;
 import com.eleven.booklibrary.model.vo.Pagination;
@@ -30,6 +31,9 @@ public class BookController {
   private BookService bookService;
   
   @Autowired
+  private StringRedisTemplate stringRedisTemplate;
+  
+  @Autowired
   private BooktypeService booktypeService;
   
   @RequestMapping(value="/book.do", method=RequestMethod.GET)
@@ -38,7 +42,7 @@ public class BookController {
     Pagination pagination = new Pagination();
     pagination.setCurPage(1L);
     pagination.setPageSize(8L);
-    books = bookService.selectBookByName("", "", pagination);
+    books = bookService.selectBookList(pagination);
     pagination = bookService.count("","", pagination);
     modelMap.addAttribute("books", books);
     modelMap.addAttribute("pagination", pagination);
@@ -143,7 +147,18 @@ public class BookController {
   @RequestMapping(value="/getBookImage.do", method=RequestMethod.POST)
   @ResponseBody
   public String getBookImage(String id) {
-    return BookUtil.getBookImage(id);
+	  
+	  String  str = stringRedisTemplate.opsForValue().get("BookImage" + id);
+	  // 若存在Redis缓存，从缓存中读取
+	  if(StringUtils.isNotBlank(str)) {
+		  String content = JSON.parseObject(str, String.class);
+	      return content;
+	  } else {
+		  String content = BookUtil.getBookImage(id);
+		  // 写入Redis缓存
+		  stringRedisTemplate.opsForValue().set("BookImage" + id, JSON.toJSONString(content));
+		  return content;
+	  }
   }
   
   @RequestMapping(value="/getBookDetail")
@@ -188,8 +203,17 @@ public class BookController {
   @RequestMapping(value="/getBookInfo", method=RequestMethod.POST)
   @ResponseBody
   public Object getBookInfo(String id) {
-    String content = BookUtil.getBookInfo(id);
-    content = content.replaceAll("\\\\n", "<br>");
-    return content;
+	  String  str = stringRedisTemplate.opsForValue().get("BookInfo");
+	  // 若存在Redis缓存，从缓存中读取
+	  if(StringUtils.isNotBlank(str)) {
+		  String content = JSON.parseObject(str, String.class);
+	      return content;
+	  } else {
+		  String content = BookUtil.getBookInfo(id);
+		  content = content.replaceAll("\\\\n", "<br>");
+		  // 写入Redis缓存
+		  stringRedisTemplate.opsForValue().set("BookInfo" + id, JSON.toJSONString(content));
+		  return content;
+	  }
   }
 }
