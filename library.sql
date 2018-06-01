@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50614
+Source Server         : 毕设
+Source Server Version : 50721
 Source Host           : localhost:3306
 Source Database       : library
 
 Target Server Type    : MYSQL
-Target Server Version : 50614
+Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2013-11-03 10:56:16
+Date: 2018-06-01 16:04:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `book`
+-- Table structure for book
 -- ----------------------------
 DROP TABLE IF EXISTS `book`;
 CREATE TABLE `book` (
@@ -37,20 +37,22 @@ CREATE TABLE `book` (
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES ('1088045', 'Windows核心编程', 'Jeffrey Richter', '机械工业出版社', '2000-06-26 14:03:26', '86', '经济学', 'A30', '2013-10-26 14:03:26', '1', '1');
-INSERT INTO `book` VALUES ('1139336', 'C程序设计语言', '（美）Brian W. Kernighan （美）Dennis M. Ritchie', '机械工业出版社', '2004-03-27 00:22:54', '30', '编程', 'A90', '2013-10-27 14:22:47', null, '4');
-INSERT INTO `book` VALUES ('1148282', '计算机程序的构造和解释', 'Harold Abelson Gerald Jay Sussman Julie Sussman', '机械工业出版社', '2004-03-27 00:21:24', '45', '经济学', 'B10', '2013-10-27 00:21:24', '0', '2');
-INSERT INTO `book` VALUES ('1477390', '代码大全（第2版）', '[美] 史蒂夫·迈克康奈尔', '电子工业出版社', '2006-04-27 00:22:06', '128', '编程', 'B10', '2013-10-27 00:22:06', '0', '3');
-INSERT INTO `book` VALUES ('1885170', '算法导论', '[美] Thomas H.Cormen Charles E.Leiserson Ronald L.Rivest Clifford Stein', '机械工业出版社', '2006-10-23 23:28:48', '85', '编程', '111', '2013-10-23 23:28:48', '5', '10');
-INSERT INTO `book` VALUES ('3004255', '编程之美', '《编程之美》小组 编', '电子工业出版社', '2008-04-26 14:03:55', '40', '经济学', 'A31', '2013-10-26 14:03:55', '0', '1');
-INSERT INTO `book` VALUES ('3112503', 'Python核心编程（第二版）', '[美]Wesley J. Chun（陳仲才）', '人民邮电出版社', '2008-07-26 14:02:19', '89', '编程', 'A20', '2013-10-26 14:02:19', '0', '2');
-INSERT INTO `book` VALUES ('3561811', '大学物理学', '张三慧', '清华大学出版社', '2009-03-24 13:38:41', '38', '编程', 'A-1-002', '2013-10-24 13:38:41', '0', '1');
-INSERT INTO `book` VALUES ('4200822', 'Android应用开发揭秘', '杨丰盛', '机械工业出版社', '2010-02-24 13:30:25', '69', '编程', 'A-1-01', '2013-10-24 13:30:25', '0', '10');
-INSERT INTO `book` VALUES ('5338024', '与孩子一起学编程', '[美] 桑德Warren Sande Carter Sande', '人民邮电出版社', '2010-12-26 14:02:58', '65', '编程', 'A20', '2013-10-26 14:02:58', '0', '3');
-INSERT INTO `book` VALUES ('5399293', 'JavaEE程序设计与应用开发', '郭克华 编', '清华大学', '2011-02-28 21:29:01', '32', '编程', 'A20', '2013-10-28 21:29:01', '0', '10');
+INSERT INTO `book` VALUES ('2024655', '数据结构', '严蔚敏 吴伟民', '清华大学出版社', '2007-09-01 09:20:09', '30', '编程', 'b04', '2018-05-24 07:36:45', '3', '100');
+INSERT INTO `book` VALUES ('2567698', '三体', '刘慈欣', '重庆出版社', '2008-02-01 09:41:20', '23', '文学', 'w07', '2018-06-01 09:41:27', '1', '100');
+INSERT INTO `book` VALUES ('2994636', '计算机组成原理', '唐朔飞', '高等教育出版社', '2008-03-01 09:20:19', '43', '编程', 'b05', '2018-05-21 23:37:43', '0', '100');
+INSERT INTO `book` VALUES ('5399293', 'JavaEE程序设计与应用开发', '郭克华 编', '清华大学', '2011-03-01 09:20:31', '32', '编程', 'b02', '2018-05-21 23:24:08', '0', '100');
+INSERT INTO `book` VALUES ('6558446', '生如夏花', '泰戈尔', '江苏文艺出版社', '2011-10-01 09:21:52', '26', '文学', 'w02', '2018-05-22 13:15:07', '0', '100');
+INSERT INTO `book` VALUES ('6721989', 'C++语言程序设计', '郑莉 董渊', '清华大学出版社', '2011-08-01 09:20:47', '23', '编程', 'b03', '2018-05-21 23:30:55', '0', '100');
+INSERT INTO `book` VALUES ('19958089', '我们仨', '杨绛', '生活·读书·新知三联书店', '2012-11-01 09:21:01', '23', '文学', 'w04', '2018-05-21 23:19:09', '0', '100');
+INSERT INTO `book` VALUES ('26079463', '计算机操作系统', '汤小丹', '西安电子科技大学出版社有限公司', '2014-06-21 09:22:59', '39', '编程', 'b01', '2018-05-21 09:22:59', '0', '100');
+INSERT INTO `book` VALUES ('26974262', '小王子', '[法] 圣-埃克苏佩里', '浙江文艺出版社', '2017-05-01 09:21:14', '39', '文学', 'w05', '2018-05-23 00:01:15', '0', '100');
+INSERT INTO `book` VALUES ('27006467', '浮生六记', '[清]沈复 周公度 译注', '浙江文艺出版社', '2017-06-01 09:21:37', '45', '文学', 'w01', '2018-05-21 23:13:44', '0', '100');
+INSERT INTO `book` VALUES ('27096017', '花间集', '赵崇祚', '江苏文艺出版社', '2017-10-01 09:22:11', '46', '文学', 'w06', '2018-05-23 21:23:48', '0', '100');
+INSERT INTO `book` VALUES ('30136325', '诗经', '骆玉明 解注 [日] 细井徇 撰绘', '三秦出版社', '2018-04-01 09:22:21', '138', '文学', 'w07', '2018-05-31 05:14:23', '0', '100');
+INSERT INTO `book` VALUES ('30171389', '苏东坡传', '林语堂', '湖南文艺出版社', '2018-03-01 09:22:32', '52', '文学', 'w03', '2018-05-21 23:17:49', '0', '100');
 
 -- ----------------------------
--- Table structure for `booktype`
+-- Table structure for booktype
 -- ----------------------------
 DROP TABLE IF EXISTS `booktype`;
 CREATE TABLE `booktype` (
@@ -63,11 +65,11 @@ CREATE TABLE `booktype` (
 -- ----------------------------
 -- Records of booktype
 -- ----------------------------
-INSERT INTO `booktype` VALUES ('经济学', '30', '1');
+INSERT INTO `booktype` VALUES ('文学', '30', '1');
 INSERT INTO `booktype` VALUES ('编程', '30', '1');
 
 -- ----------------------------
--- Table structure for `borrow`
+-- Table structure for borrow
 -- ----------------------------
 DROP TABLE IF EXISTS `borrow`;
 CREATE TABLE `borrow` (
@@ -83,13 +85,13 @@ CREATE TABLE `borrow` (
 -- ----------------------------
 -- Records of borrow
 -- ----------------------------
-INSERT INTO `borrow` VALUES ('2', '4200822', '陈洪晶', 'Android应用开发揭秘', '2013-10-26 01:59:43', '2013-10-25 13:57:57', '0');
-INSERT INTO `borrow` VALUES ('100', '101', '陈洪晶', '设计模式', null, '2013-11-19 00:00:00', null);
-INSERT INTO `borrow` VALUES ('101', '101', '谭苑霞', '设计模式', '2013-10-21 00:34:42', '2013-09-19 00:00:00', '2');
-INSERT INTO `borrow` VALUES ('2', '1088045', '陈洪晶', 'Windows核心编程', null, '2013-10-28 21:31:56', null);
+INSERT INTO `borrow` VALUES ('1', '2024655', '小明', '数据结构', '2018-05-23 11:27:02', '2018-05-23 11:01:01', '0');
+INSERT INTO `borrow` VALUES ('1', '2024655', '小明', '数据结构', null, '2018-06-01 10:00:29', null);
+INSERT INTO `borrow` VALUES ('1', '2024655', '小明', '数据结构', null, '2018-06-01 10:10:15', null);
+INSERT INTO `borrow` VALUES ('2', '2567698', '小刚', '三体', null, '2018-06-01 10:50:43', null);
 
 -- ----------------------------
--- Table structure for `borrower`
+-- Table structure for borrower
 -- ----------------------------
 DROP TABLE IF EXISTS `borrower`;
 CREATE TABLE `borrower` (
@@ -110,13 +112,12 @@ CREATE TABLE `borrower` (
 -- ----------------------------
 -- Records of borrower
 -- ----------------------------
-INSERT INTO `borrower` VALUES ('2', '陈洪晶', '男', '440782199109133911', '五邑大学', '五邑大学', '13750376797', '超级会员', '2013-10-20 00:00:00', '6', '0');
-INSERT INTO `borrower` VALUES ('3', '谭苑霞', '女', '1', '五邑大学', '五邑大学', '121212', '普通会员', '2013-10-24 00:32:50', '0', '0');
-INSERT INTO `borrower` VALUES ('4', '小苑', '女', '440782199105270458', '五邑大学', '女生宿舍27幢', '13750371111', '普通会员', '2013-10-24 13:11:08', '0', '0');
-INSERT INTO `borrower` VALUES ('5', 'ddd', '男', '11111', 'ddd', 'wyu', '12', '普通会员', '2013-10-28 21:26:49', '0', '0');
+INSERT INTO `borrower` VALUES ('1', '小明', '男', '111111111111111111', '燕山大学', '秦皇岛', '15117963494', '普通会员', '2018-05-22 10:00:01', '3', '0');
+INSERT INTO `borrower` VALUES ('2', '小刚', '男', '111111111111111112', '燕山大学', '秦皇岛', '13750376797', '超级会员', '2018-05-22 11:00:03', '1', '0');
+INSERT INTO `borrower` VALUES ('3', '小红', '女', '111111111111111113', '燕山大学', '秦皇岛', '18712781759', '普通会员', '2018-05-22 11:23:58', '0', '0');
 
 -- ----------------------------
--- Table structure for `borrowertype`
+-- Table structure for borrowertype
 -- ----------------------------
 DROP TABLE IF EXISTS `borrowertype`;
 CREATE TABLE `borrowertype` (
@@ -128,11 +129,12 @@ CREATE TABLE `borrowertype` (
 -- ----------------------------
 -- Records of borrowertype
 -- ----------------------------
+INSERT INTO `borrowertype` VALUES ('大会员', '8');
 INSERT INTO `borrowertype` VALUES ('普通会员', '5');
 INSERT INTO `borrowertype` VALUES ('超级会员', '10');
 
 -- ----------------------------
--- Table structure for `user`
+-- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -145,9 +147,4 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('eleven', '123', '1');
-INSERT INTO `user` VALUES ('hello', '123', '1');
-INSERT INTO `user` VALUES ('nono', '123', '1');
-INSERT INTO `user` VALUES ('NovemberEleven', '123', '1');
-INSERT INTO `user` VALUES ('skyhacker', '123', '1');
-INSERT INTO `user` VALUES ('xiaoyuan', '123', '1');
+INSERT INTO `user` VALUES ('lijinliang', '123', '1');
