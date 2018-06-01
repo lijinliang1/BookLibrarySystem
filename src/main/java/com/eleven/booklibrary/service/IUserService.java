@@ -6,7 +6,7 @@ import com.eleven.booklibrary.model.User;
 import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.model.vo.UserVo;
 
-public interface UserService {
+public interface IUserService {
   /**
    * 添加用户
    * @param user

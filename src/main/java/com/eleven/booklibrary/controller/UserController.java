@@ -15,8 +15,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.User;
 import com.eleven.booklibrary.model.vo.UserVo;
-import com.eleven.booklibrary.service.BorrowertypeService;
-import com.eleven.booklibrary.service.UserService;
+import com.eleven.booklibrary.service.IBorrowertypeService;
+import com.eleven.booklibrary.service.IUserService;
 import com.eleven.booklibrary.util.ModelPrinter;
 
 @Controller
@@ -24,7 +24,7 @@ import com.eleven.booklibrary.util.ModelPrinter;
 public class UserController {
   
   @Autowired
-  private UserService userService;
+  private IUserService userService;
   
   
   /**

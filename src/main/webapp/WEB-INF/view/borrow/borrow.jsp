@@ -7,7 +7,7 @@
 		<ul class="nav nav-tabs">
 			<li><a href="${basePath}user/user_center.do">借阅者管理</a></li>
 			<li><a href="${basePath}book/book.do">图书管理</a></li>
-			<li class="active"><a href="${basePath}borrow/borrow.do">借阅管理</a></li>
+			<li class="active"><a href="${basePath}borrow/searchBorrow.do">借阅管理</a></li>
 			<li><a href="${basePath }type/borrowerType.do">借阅者类别管理</a></li>
 			<li><a href="${basePath }type/bookType.do">图书类别管理</a></li>
 			<li><a href="${basePath }user/manageUser.do">用户管理</a></li>

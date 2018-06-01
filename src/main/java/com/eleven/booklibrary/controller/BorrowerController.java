@@ -18,8 +18,8 @@ import com.eleven.booklibrary.model.Borrower;
 import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.vo.BorrowerVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BorrowerService;
-import com.eleven.booklibrary.service.BorrowertypeService;
+import com.eleven.booklibrary.service.IBorrowerService;
+import com.eleven.booklibrary.service.IBorrowertypeService;
 import com.eleven.booklibrary.util.BookUtil;
 import com.eleven.booklibrary.util.ModelPrinter;
 
@@ -28,10 +28,10 @@ import com.eleven.booklibrary.util.ModelPrinter;
 public class BorrowerController {
   
   @Autowired
-  private BorrowerService borrowerService;
+  private IBorrowerService borrowerService;
   
   @Autowired
-  private BorrowertypeService borrowertypeService;
+  private IBorrowertypeService borrowertypeService;
   
   @RequestMapping(value="/searchBorrower", method = RequestMethod.POST)
   @ResponseBody

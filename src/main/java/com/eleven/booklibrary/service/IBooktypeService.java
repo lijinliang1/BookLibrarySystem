@@ -6,7 +6,7 @@ import com.eleven.booklibrary.model.Booktype;
 import com.eleven.booklibrary.model.vo.BooktypeVo;
 import com.eleven.booklibrary.model.vo.Pagination;
 
-public interface BooktypeService {
+public interface IBooktypeService {
   void insertBooktype(BooktypeVo vo);
   
   void updateBooktype(BooktypeVo newBooktypeVo, BooktypeVo oldBooktypeVo);

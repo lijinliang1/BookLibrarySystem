@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.eleven.booklibrary.model.Book;
 import com.eleven.booklibrary.model.Booktype;
-import com.eleven.booklibrary.service.BookService;
-import com.eleven.booklibrary.service.BooktypeService;
+import com.eleven.booklibrary.service.IBookService;
+import com.eleven.booklibrary.service.IBooktypeService;
 
 @Controller
 public class IndexController {
   @Autowired
-  private BookService bookService;
+  private IBookService bookService;
   
   @Autowired 
-  private BooktypeService bookTypeService;
+  private IBooktypeService bookTypeService;
   
   @RequestMapping("/index.do")
   public String index(HttpServletRequest request, ModelMap map) {

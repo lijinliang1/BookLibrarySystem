@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.eleven.booklibrary.model.User;
 import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.model.vo.UserVo;
-import com.eleven.booklibrary.service.UserService;
+import com.eleven.booklibrary.service.IUserService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,7 +18,7 @@ import com.eleven.booklibrary.service.UserService;
 public class TestUserService {
 
   @Autowired
-  private UserService userService;
+  private IUserService userService;
   
   @Test
   public void testInsertUser() {

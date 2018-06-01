@@ -6,7 +6,7 @@ import com.eleven.booklibrary.model.Book;
 import com.eleven.booklibrary.model.vo.BookVo;
 import com.eleven.booklibrary.model.vo.Pagination;
 
-public interface BookService {
+public interface IBookService {
   
 	public void insertBook(BookVo vo);
   

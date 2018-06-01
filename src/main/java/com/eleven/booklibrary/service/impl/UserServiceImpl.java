@@ -10,10 +10,10 @@ import com.eleven.booklibrary.model.User;
 import com.eleven.booklibrary.model.UserExample;
 import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.model.vo.UserVo;
-import com.eleven.booklibrary.service.UserService;
+import com.eleven.booklibrary.service.IUserService;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 
   @Autowired
   private UserMapper userMapper;

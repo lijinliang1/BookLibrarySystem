@@ -6,7 +6,7 @@ public class BookVo extends Book {
   private String priceVo;
   
   private String pubdate;
-  
+
   public String getPubdate() {
     return pubdate;
   }

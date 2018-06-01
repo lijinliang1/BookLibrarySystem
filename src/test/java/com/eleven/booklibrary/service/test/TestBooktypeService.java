@@ -10,13 +10,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.eleven.booklibrary.model.Booktype;
 import com.eleven.booklibrary.model.vo.BooktypeVo;
-import com.eleven.booklibrary.service.BooktypeService;
+import com.eleven.booklibrary.service.IBooktypeService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/spring.xml"})
 public class TestBooktypeService {
   @Autowired
-  private BooktypeService booktypeService;
+  private IBooktypeService booktypeService;
   
   @Test
   public void testInsertBooktype() {

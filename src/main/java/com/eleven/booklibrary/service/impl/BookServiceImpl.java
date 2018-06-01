@@ -15,10 +15,10 @@ import com.eleven.booklibrary.model.BookExample;
 import com.eleven.booklibrary.model.BookExample.Criteria;
 import com.eleven.booklibrary.model.vo.BookVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BookService;
+import com.eleven.booklibrary.service.IBookService;
 
 @Service
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements IBookService{
 	
 	@Autowired
 	private StringRedisTemplate stringRedisTemplate;

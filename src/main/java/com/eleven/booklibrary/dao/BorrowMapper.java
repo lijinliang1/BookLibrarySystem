@@ -1,10 +1,13 @@
 package com.eleven.booklibrary.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.eleven.booklibrary.model.Borrow;
 import com.eleven.booklibrary.model.BorrowExample;
 import com.eleven.booklibrary.model.BorrowKey;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import com.eleven.booklibrary.model.vo.BorrowBookCountVo;
 
 public interface BorrowMapper {
     int countByExample(BorrowExample example);
@@ -34,4 +37,7 @@ public interface BorrowMapper {
     List<Borrow> selectByCardNumber(@Param("cardNumber") Long cardNumber, @Param("offset") Long offset, @Param("length")Long length);
     
     List<Borrow> selectByBookNumber(@Param("bookNumber") Long bookNumber, @Param("offset") Long offset, @Param("length")Long length);
+    
+    List<BorrowBookCountVo> selectBorrowerCountList(Integer numbers);
+    List<BorrowBookCountVo> selectBookCountList(Integer numbers);
 }

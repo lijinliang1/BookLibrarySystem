@@ -22,30 +22,30 @@ import com.eleven.booklibrary.model.Borrower;
 import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.vo.BorrowVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BookService;
-import com.eleven.booklibrary.service.BooktypeService;
-import com.eleven.booklibrary.service.BorrowService;
-import com.eleven.booklibrary.service.BorrowerService;
-import com.eleven.booklibrary.service.BorrowertypeService;
+import com.eleven.booklibrary.service.IBookService;
+import com.eleven.booklibrary.service.IBooktypeService;
+import com.eleven.booklibrary.service.IBorrowService;
+import com.eleven.booklibrary.service.IBorrowerService;
+import com.eleven.booklibrary.service.IBorrowertypeService;
 
 @Controller
 @RequestMapping(value="/borrow")
 public class BorrowController {
   
   @Autowired
-  private BorrowService borrowService;
+  private IBorrowService borrowService;
   
   @Autowired
-  private BorrowerService borrowerService;
+  private IBorrowerService borrowerService;
   
   @Autowired
-  private BookService bookService;
+  private IBookService bookService;
   
   @Autowired
-  private BorrowertypeService borrowertypeService;
+  private IBorrowertypeService borrowertypeService;
   
   @Autowired
-  private BooktypeService booktypeService;
+  private IBooktypeService booktypeService;
   
   @RequestMapping(value="/borrow.do", method = RequestMethod.GET)
   public String borrow(){

@@ -10,10 +10,10 @@ import com.eleven.booklibrary.model.Borrower;
 import com.eleven.booklibrary.model.BorrowerExample;
 import com.eleven.booklibrary.model.vo.BorrowerVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BorrowerService;
+import com.eleven.booklibrary.service.IBorrowerService;
 
 @Service
-public class BorrowerServiceImpl implements BorrowerService {
+public class BorrowerServiceImpl implements IBorrowerService {
 
   @Autowired
   private BorrowerMapper borrowerMapper;

@@ -6,7 +6,7 @@ import com.eleven.booklibrary.model.Borrower;
 import com.eleven.booklibrary.model.vo.BorrowerVo;
 import com.eleven.booklibrary.model.vo.Pagination;
 
-public interface BorrowerService {
+public interface IBorrowerService {
   /**
    * 添加借阅者
    */

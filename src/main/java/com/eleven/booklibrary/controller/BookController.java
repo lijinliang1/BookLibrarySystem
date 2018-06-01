@@ -18,8 +18,8 @@ import com.eleven.booklibrary.model.BookExample;
 import com.eleven.booklibrary.model.Booktype;
 import com.eleven.booklibrary.model.vo.BookVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BookService;
-import com.eleven.booklibrary.service.BooktypeService;
+import com.eleven.booklibrary.service.IBookService;
+import com.eleven.booklibrary.service.IBooktypeService;
 import com.eleven.booklibrary.util.BookUtil;
 import com.eleven.booklibrary.util.ModelPrinter;
 
@@ -28,13 +28,13 @@ import com.eleven.booklibrary.util.ModelPrinter;
 public class BookController {
 
   @Autowired
-  private BookService bookService;
+  private IBookService bookService;
   
   @Autowired
   private StringRedisTemplate stringRedisTemplate;
   
   @Autowired
-  private BooktypeService booktypeService;
+  private IBooktypeService booktypeService;
   
   @RequestMapping(value="/book.do", method=RequestMethod.GET)
   public String book(ModelMap modelMap) {

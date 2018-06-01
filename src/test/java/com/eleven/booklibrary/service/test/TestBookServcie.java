@@ -9,14 +9,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.eleven.booklibrary.model.vo.BookVo;
-import com.eleven.booklibrary.service.BookService;
+import com.eleven.booklibrary.service.IBookService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/spring.xml"})
 public class TestBookServcie {
   
   @Autowired
-  private BookService bookService;
+  private IBookService bookService;
   
   @Test
   public void testInsertBook() {

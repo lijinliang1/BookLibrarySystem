@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import com.eleven.booklibrary.dao.BookMapper;
@@ -23,10 +24,10 @@ import com.eleven.booklibrary.model.Borrower;
 import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.vo.BorrowVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BorrowService;
+import com.eleven.booklibrary.service.IBorrowService;
 
 @Service
-public class BorrowServiceImpl implements BorrowService{
+public class BorrowServiceImpl implements IBorrowService{
   
   @Autowired
   private BorrowMapper mapper;
@@ -42,6 +43,9 @@ public class BorrowServiceImpl implements BorrowService{
   
   @Autowired
   private BooktypeMapper booktypeMapper;
+  
+  @Autowired
+  private StringRedisTemplate stringRedisTemplate;
 
   public void borrowBook(BorrowVo borrow) throws BookException {
     // 判断书能不能借
@@ -53,7 +57,7 @@ public class BorrowServiceImpl implements BorrowService{
     Borrowertype borrowertype = borrowertypeMapper.selectByPrimaryKey(borrower.getType());
     if (borrower.getBorrowed() == borrowertype.getBorrowNumber())
       throw new BookException("用户借阅数已经到达上限");
-   
+    
     
     // 添加借书记录
     borrower.setBorrowed(borrower.getBorrowed()+1);
@@ -61,6 +65,9 @@ public class BorrowServiceImpl implements BorrowService{
     book.setBorrowedNumber(book.getBorrowedNumber()+1);
     bookMapper.updateByPrimaryKey(book);
     mapper.insert(borrow);
+    //删除Redis缓存，使得redis获取最新数据
+    stringRedisTemplate.delete("IndexBookList");
+    stringRedisTemplate.delete("BookList");
     
   }
 
@@ -91,6 +98,9 @@ public class BorrowServiceImpl implements BorrowService{
     else 
       borrow.setFine(0L);
     mapper.updateByPrimaryKey(borrow);
+    //删除Redis缓存，使得redis获取最新数据
+    stringRedisTemplate.delete("IndexBookList");
+    stringRedisTemplate.delete("BookList");
     return borrow;
   }
 

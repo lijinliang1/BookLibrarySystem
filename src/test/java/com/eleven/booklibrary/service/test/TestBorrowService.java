@@ -14,7 +14,7 @@ import com.eleven.booklibrary.model.Borrow;
 import com.eleven.booklibrary.model.BorrowKey;
 import com.eleven.booklibrary.model.vo.BorrowVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BorrowService;
+import com.eleven.booklibrary.service.IBorrowService;
 import com.eleven.booklibrary.util.ModelPrinter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,7 +22,7 @@ import com.eleven.booklibrary.util.ModelPrinter;
 public class TestBorrowService {
 
   @Autowired
-  private BorrowService borrowService;
+  private IBorrowService borrowService;
   
   @Test
   public void testBorrowBook() {

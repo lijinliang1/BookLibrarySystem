@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.vo.BorrowertypeVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BorrowertypeService;
+import com.eleven.booklibrary.service.IBorrowertypeService;
 import com.eleven.booklibrary.util.ModelPrinter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -19,7 +19,7 @@ import com.eleven.booklibrary.util.ModelPrinter;
 public class TestBorrowertypeService {
 
   @Autowired
-  private BorrowertypeService service;
+  private IBorrowertypeService service;
   
   @Test
   public void testInsertBorrowertype() {

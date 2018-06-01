@@ -10,10 +10,10 @@ import com.eleven.booklibrary.model.Booktype;
 import com.eleven.booklibrary.model.BooktypeExample;
 import com.eleven.booklibrary.model.vo.BooktypeVo;
 import com.eleven.booklibrary.model.vo.Pagination;
-import com.eleven.booklibrary.service.BooktypeService;
+import com.eleven.booklibrary.service.IBooktypeService;
 
 @Service
-public class BooktypeServiceImpl implements BooktypeService{
+public class BooktypeServiceImpl implements IBooktypeService{
 
   @Autowired
   private BooktypeMapper booktypeMapper;

@@ -244,4 +244,18 @@
     where book_number = #{bookNumber,jdbcType=DECIMAL}
       and borrower_number = #{borrowerNumber,jdbcType=DECIMAL}
   </update>
+  <select id="selectBorrowerCountList" parameterType="java.lang.Integer" resultMap="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
+    select borrower_name,count(*) 
+    from borrow 
+    group by borrower_name 
+    order by count(*) desc
+    limit ${numbers}
+  </select>
+  <select id="selectBookCountList" parameterType="java.lang.Integer" resultMap="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
+    select book_name,count(*) 
+    from borrow 
+    group by book_name 
+    order by count(*) desc
+    limit ${numbers}
+  </select>
 </mapper>

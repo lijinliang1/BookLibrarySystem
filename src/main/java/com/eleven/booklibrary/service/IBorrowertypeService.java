@@ -7,7 +7,7 @@ import com.eleven.booklibrary.model.vo.BorrowerVo;
 import com.eleven.booklibrary.model.vo.BorrowertypeVo;
 import com.eleven.booklibrary.model.vo.Pagination;
 
-public interface BorrowertypeService {
+public interface IBorrowertypeService {
   void insertBorrowertype(BorrowertypeVo vo);
   
   void updateBorrowertype(BorrowertypeVo vo);

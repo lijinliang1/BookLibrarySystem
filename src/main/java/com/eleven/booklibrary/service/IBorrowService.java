@@ -9,7 +9,7 @@ import com.eleven.booklibrary.model.BorrowKey;
 import com.eleven.booklibrary.model.vo.BorrowVo;
 import com.eleven.booklibrary.model.vo.Pagination;
 
-public interface BorrowService {
+public interface IBorrowService {
   void borrowBook(BorrowVo borrow) throws BookException;
   
   Borrow returnBook(BorrowKey key);

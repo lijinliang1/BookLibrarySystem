@@ -14,18 +14,18 @@ import com.eleven.booklibrary.model.Booktype;
 import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.vo.BooktypeVo;
 import com.eleven.booklibrary.model.vo.BorrowertypeVo;
-import com.eleven.booklibrary.service.BooktypeService;
-import com.eleven.booklibrary.service.BorrowertypeService;
+import com.eleven.booklibrary.service.IBooktypeService;
+import com.eleven.booklibrary.service.IBorrowertypeService;
 
 @Controller
 @RequestMapping(value="/type")
 public class TypeController {
   
   @Autowired
-  private BorrowertypeService borrowerTypeService;
+  private IBorrowertypeService borrowerTypeService;
   
   @Autowired
-  private BooktypeService bookTypeService;
+  private IBooktypeService bookTypeService;
   
   @RequestMapping(value="/borrowerType")
   public String borrowerType(ModelMap map) {
