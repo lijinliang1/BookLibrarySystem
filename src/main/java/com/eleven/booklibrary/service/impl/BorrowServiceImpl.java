@@ -167,13 +167,12 @@ public class BorrowServiceImpl implements IBorrowService{
     return page;
   }
 
-	public List<BorrowBookCountVo> selectBorrowerCountList(Integer numbers) {
+	public List<BorrowBookCountVo> selectBorrowerCountList(String startTime, String endTime, Integer numbers) {
+		
 		return mapper.selectBorrowerCountList(numbers);
 	}
 	
-	public List<BorrowBookCountVo> selectBookCountList(Integer numbers) {
+	public List<BorrowBookCountVo> selectBookCountList(String startTime, String endTime, Integer numbers) {
 		return mapper.selectBookCountList(numbers);
 	}
-	  
-
 }

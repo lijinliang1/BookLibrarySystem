@@ -1,6 +1,9 @@
 package com.eleven.booklibrary.service;
 
+import java.sql.Date;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.alibaba.druid.sql.dialect.postgresql.ast.stmt.PGInsertStatement;
 import com.eleven.booklibrary.exception.BookException;
@@ -33,6 +36,6 @@ public interface IBorrowService {
   
   Pagination countByKey(BorrowKey key, Pagination pagination);
   
-  List<BorrowBookCountVo> selectBorrowerCountList(Integer numbers);
-  List<BorrowBookCountVo> selectBookCountList(Integer numbers);
+  List<BorrowBookCountVo> selectBorrowerCountList(String startTime, String endTime, Integer numbers);
+  List<BorrowBookCountVo> selectBookCountList(String startTime, String endTime, Integer numbers);
 }

@@ -1,5 +1,6 @@
 package com.eleven.booklibrary.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -38,6 +39,6 @@ public interface BorrowMapper {
     
     List<Borrow> selectByBookNumber(@Param("bookNumber") Long bookNumber, @Param("offset") Long offset, @Param("length")Long length);
     
-    List<BorrowBookCountVo> selectBorrowerCountList(Integer numbers);
-    List<BorrowBookCountVo> selectBookCountList(Integer numbers);
+    List<BorrowBookCountVo> selectBorrowerCountList(@Param("startTime") Date startTime, @Param("endTime") Date endTime,@Param("numbers")Integer numbers);
+    List<BorrowBookCountVo> selectBookCountList(@Param("startTime") Date startTime, @Param("endTime") Date endTime,@Param("numbers")Integer numbers);
 }

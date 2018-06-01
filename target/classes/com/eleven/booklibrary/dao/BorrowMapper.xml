@@ -244,16 +244,32 @@
     where book_number = #{bookNumber,jdbcType=DECIMAL}
       and borrower_number = #{borrowerNumber,jdbcType=DECIMAL}
   </update>
-  <select id="selectBorrowerCountList" parameterType="java.lang.Integer" resultMap="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
+  <select id="selectBorrowerCountList" resultMap="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
     select borrower_name,count(*) 
     from borrow 
+    where 
+    	1=1
+    	<if test="startTime!=null and startTime!=''">
+		and return_date &gt;= #{startTime}
+		</if>
+		<if test="endTime!=null and endTime!=''">
+		and return_date &lt;= #{endTime}
+		</if>
     group by borrower_name 
     order by count(*) desc
     limit ${numbers}
   </select>
-  <select id="selectBookCountList" parameterType="java.lang.Integer" resultMap="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
+  <select id="selectBookCountList" resultMap="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
     select book_name,count(*) 
     from borrow 
+    where
+    	1=1
+    	<if test="startTime!=null and startTime!=''">
+		and return_date &gt;= #{startTime}
+		</if>
+		<if test="endTime!=null and endTime!=''">
+		and return_date &lt;= #{endTime}
+		</if>
     group by book_name 
     order by count(*) desc
     limit ${numbers}
