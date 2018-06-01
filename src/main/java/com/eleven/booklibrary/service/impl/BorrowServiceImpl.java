@@ -22,6 +22,7 @@ import com.eleven.booklibrary.model.BorrowExample;
 import com.eleven.booklibrary.model.BorrowKey;
 import com.eleven.booklibrary.model.Borrower;
 import com.eleven.booklibrary.model.Borrowertype;
+import com.eleven.booklibrary.model.vo.BorrowBookCountVo;
 import com.eleven.booklibrary.model.vo.BorrowVo;
 import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.service.IBorrowService;
@@ -165,6 +166,14 @@ public class BorrowServiceImpl implements IBorrowService{
     }
     return page;
   }
-  
+
+	public List<BorrowBookCountVo> selectBorrowerCountList(Integer numbers) {
+		return mapper.selectBorrowerCountList(numbers);
+	}
+	
+	public List<BorrowBookCountVo> selectBookCountList(Integer numbers) {
+		return mapper.selectBookCountList(numbers);
+	}
+	  
 
 }
