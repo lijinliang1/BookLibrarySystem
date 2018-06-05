@@ -17,13 +17,18 @@ import com.eleven.booklibrary.service.IBorrowService;
 * 类说明：
 */
 @Controller
-@RequestMapping(value="/borrow")
+@RequestMapping(value="/chart")
 public class ChartController {
 	
 	@Autowired
 	private IBorrowService borrowService;
 	
 	private Integer numbers = 8;
+	
+	 @RequestMapping(value="/chart.do", method = RequestMethod.GET)
+	 public String borrow(){
+	    return "chart/chart";
+	 }
 	
 	/**
 	  * 展示借阅次数最多的图书
@@ -32,8 +37,8 @@ public class ChartController {
 	  */
 	 @RequestMapping(value = "/getBookList", method=RequestMethod.POST)
 	 @ResponseBody
-	 public Object getBookList() {
-		 return borrowService.selectBookCountList(numbers);
+	 public Object getBookList(String startTime, String endTime) {
+		 return borrowService.selectBookCountList(startTime, endTime, numbers);
 	 }
 	 
 	 /**
@@ -43,7 +48,7 @@ public class ChartController {
 	  */
 	 @RequestMapping(value = "/getBorrowerList", method=RequestMethod.POST)
 	 @ResponseBody
-	 public Object getBorrowerList() {
-		 return borrowService.selectBookCountList(numbers);
+	 public Object getBorrowerList(String startTime, String endTime) {
+		 return borrowService.selectBookCountList(startTime, endTime, numbers);
 	 }
 }

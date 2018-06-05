@@ -11,7 +11,7 @@
 	
 	<!-- 引入redis属性配置文件 -->
     <import resource="classpath:redis-context.xml"/>
-
+    
 	<!-- Properties文件读取配置，base的properties -->
 	<context:property-placeholder location="classpath:jdbc.properties" />
 
@@ -60,7 +60,5 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
         <property name="basePackage" value="com.eleven.booklibrary.dao"/>   	
     </bean>  
-
-
 
 </beans>

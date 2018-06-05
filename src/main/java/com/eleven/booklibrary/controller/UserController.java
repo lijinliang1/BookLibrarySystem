@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.User;
 import com.eleven.booklibrary.model.vo.UserVo;
-import com.eleven.booklibrary.service.IBorrowertypeService;
 import com.eleven.booklibrary.service.IUserService;
-import com.eleven.booklibrary.util.ModelPrinter;
+import com.eleven.booklibrary.util.AESUtil;
 
 @Controller
 @RequestMapping(value="/user")
@@ -37,6 +35,8 @@ public class UserController {
   @RequestMapping(value="/login.do", method = RequestMethod.POST)
   public String login(UserVo userVo, HttpServletRequest request, RedirectAttributes redirectAttr) {
     request.getSession().setAttribute("title", "登入");
+    String password = AESUtil.encrypt(userVo.getPassword());
+    userVo.setPassword(password);
     User user = userService.login(userVo);
     if (user != null) {
       request.getSession().setAttribute("user", user);
@@ -96,6 +96,8 @@ public class UserController {
   
   @RequestMapping(value="addUser", method=RequestMethod.POST)
   public String addUser(UserVo vo, ModelMap map) {
+	String password = AESUtil.encrypt(vo.getPassword());
+	vo.setPassword(password);
     userService.insertUser(vo);
     List<User> list = userService.selectUsers(null);
     map.addAttribute("userList", list);

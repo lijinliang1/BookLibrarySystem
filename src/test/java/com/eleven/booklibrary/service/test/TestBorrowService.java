@@ -66,4 +66,11 @@ public class TestBorrowService {
     key.setBorrowerNumber(101L);
     borrowService.deletBorrowRecord(key);
   }
+  
+  @Test
+  public void testSelectListBorrow() {
+    String start = "2018-05-22";
+    String end = "2018-05-24";
+    borrowService.selectBookCountList(start, end, 2);
+  }
 }

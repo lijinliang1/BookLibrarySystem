@@ -1,6 +1,5 @@
 package com.eleven.booklibrary.controller;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -8,19 +7,15 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.eleven.booklibrary.model.Book;
 import com.eleven.booklibrary.model.Borrower;
 import com.eleven.booklibrary.model.Borrowertype;
 import com.eleven.booklibrary.model.vo.BorrowerVo;
-import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.service.IBorrowerService;
 import com.eleven.booklibrary.service.IBorrowertypeService;
-import com.eleven.booklibrary.util.BookUtil;
 import com.eleven.booklibrary.util.ModelPrinter;
 
 @Controller

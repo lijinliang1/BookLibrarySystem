@@ -26,6 +26,7 @@ import com.eleven.booklibrary.model.vo.BorrowBookCountVo;
 import com.eleven.booklibrary.model.vo.BorrowVo;
 import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.service.IBorrowService;
+import com.eleven.booklibrary.util.StringOrDate;
 
 @Service
 public class BorrowServiceImpl implements IBorrowService{
@@ -168,11 +169,14 @@ public class BorrowServiceImpl implements IBorrowService{
   }
 
 	public List<BorrowBookCountVo> selectBorrowerCountList(String startTime, String endTime, Integer numbers) {
-		
-		return mapper.selectBorrowerCountList(numbers);
+		Date begin = StringOrDate.stringToDate(startTime);
+		Date end = StringOrDate.stringToDate(endTime);
+		return mapper.selectBorrowerCountList(begin, end, numbers);
 	}
 	
 	public List<BorrowBookCountVo> selectBookCountList(String startTime, String endTime, Integer numbers) {
-		return mapper.selectBookCountList(numbers);
+		Date begin = StringOrDate.stringToDate(startTime);
+		Date end = StringOrDate.stringToDate(endTime);
+		return mapper.selectBookCountList(begin, end, numbers);
 	}
 }

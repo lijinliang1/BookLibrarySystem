@@ -12,6 +12,7 @@
 			<li><a href="${basePath }type/borrowerType.do">借阅者类别管理</a></li>
 			<li><a href="${basePath }type/bookType.do">图书类别管理</a></li>
 			<li><a href="${basePath }user/manageUser.do">用户管理</a></li>
+			<li><a href="${basePath }chart/chart.do">统计报表</a></li>
 		</ul>
 	</div>
 	<!-- tab-panes -->
