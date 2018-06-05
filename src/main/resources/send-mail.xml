@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+	<!--扫描sendmail配置文件-->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:sendmail.properties"/>
+
+   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <!-- 服务器 -->
+        <property name="host" value="${mail.host}" />
+        <!-- 端口号 -->
+        <property name="port" value="${mail.smtp.port}" />
+        <!-- 用户名 -->
+        <property name="username" value="${mail.username}" />
+        <!--  密码   -->
+        <property name="password" value="${mail.password}" />
+        <!-- SMTP服务器验证 -->
+        <property name="javaMailProperties">
+            <props>
+                <!-- 验证身份 -->
+                <prop key="mail.smtp.auth">true</prop>
+                <!-- 启动调试开关 -->    
+                <prop key="mail.debug">true</prop>   
+                <!-- 启动调试开关 -->    
+                <prop key="mail.smtp.ssl.enable">true</prop>  
+                <!-- 设置发送延时 -->  
+                <prop key="mail.smtp.timeout">0</prop>  
+                <prop key="mail.smtp.socketFactory.class">${mail.smtp.socketFactory.class}</prop>  
+                <prop key="mail.smtp.port">${mail.smtp.port}</prop>  
+                <prop key="mail.smtp.socketFactory.port">${mail.smtp.socketFactory.port}</prop> 
+           </props>
+        </property>
+    </bean>
+
+    <bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <!-- 发件人email -->
+        <property name="from" value="${mail.from}" />
+    </bean>
+
+    <bean id="simpleMail" class="com.eleven.booklibrary.util.Email">
+        <property name="mailSender" ref="mailSender" />
+        <property name="simpleMailMessage" ref="simpleMailMessage" />
+    </bean>
+
+</beans>

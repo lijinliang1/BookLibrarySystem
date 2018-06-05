@@ -1,0 +1,9 @@
+com\eleven\booklibrary\service\test\TestBorrowService.class
+com\eleven\booklibrary\service\test\TestBooktypeService.class
+com\eleven\booklibrary\service\test\EmailTest.class
+com\eleven\booklibrary\service\test\TestBookUtil.class
+com\eleven\booklibrary\service\test\TestRedis.class
+com\eleven\booklibrary\service\test\TestBookServcie.class
+com\eleven\booklibrary\service\test\TestBorrowerService.class
+com\eleven\booklibrary\service\test\TestBorrowertypeService.class
+com\eleven\booklibrary\service\test\TestUserService.class
