@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.eleven.booklibrary.model.Booktype;
 import com.eleven.booklibrary.model.Borrow;
 import com.eleven.booklibrary.model.BorrowExample;
 import com.eleven.booklibrary.model.BorrowKey;
@@ -39,6 +40,8 @@ public interface BorrowMapper {
     
     List<Borrow> selectByBookNumber(@Param("bookNumber") Long bookNumber, @Param("offset") Long offset, @Param("length")Long length);
     
-    List<BorrowBookCountVo> selectBorrowerCountList(@Param("startTime") java.util.Date begin, @Param("endTime") java.util.Date end,@Param("numbers")Integer numbers);
+    List<BorrowBookCountVo> selectBorrowerCountList(@Param("startTime") Date startTime, @Param("endTime") Date endTime,@Param("numbers")Integer numbers);
     List<BorrowBookCountVo> selectBookCountList(@Param("startTime") Date startTime, @Param("endTime") Date endTime,@Param("numbers")Integer numbers);
+    
+    List<Borrow> selectBorrowByTime(Booktype booktype);
 }

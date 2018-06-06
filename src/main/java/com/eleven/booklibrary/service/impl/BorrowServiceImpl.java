@@ -179,4 +179,8 @@ public class BorrowServiceImpl implements IBorrowService{
 		Date end = StringOrDate.stringToDate(endTime);
 		return mapper.selectBookCountList(begin, end, numbers);
 	}
+
+	public List<Borrow> selectBorrowByTime(Booktype booktype) {
+		return mapper.selectBorrowByTime(booktype);
+	}
 }

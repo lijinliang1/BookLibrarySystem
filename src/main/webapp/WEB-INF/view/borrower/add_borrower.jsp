@@ -49,10 +49,16 @@
 			</select> <span class="help-inline"></span>
 		</div>
 	</div>
-	<div class="control-group">
+<!-- 	<div class="control-group">
 		<label class="control-label" for="inputPhone">电话</label>
 		<div class="controls">
 			<input type="text" id="inputPhone" name="phone" onblur="validateInput(this,isNaN,'只能输入数字')"> <span class="help-inline"></span>
+		</div>
+	</div> -->
+	<div class="control-group">
+		<label class="control-label" for="inputPhone">邮箱</label>
+		<div class="controls">
+			<input type="text" id="inputPhone" name="phone" onblur="checkEmail(this,'不符合邮箱格式')"> <span class="help-inline"></span>
 		</div>
 	</div>
 	<div class="form-actions">
@@ -80,6 +86,26 @@
 			return true;
 		}
 	}
+	
+	function checkEmail(input, msg) {
+		var value = $(input).val();
+		var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
+		　　
+		if(value === ""){ //输入不能为空
+	　　    	$(input).closest(".control-group").removeClass("success").addClass("error");
+			$(input).next().html("此项不能空");
+			return false;
+	　　	}else if(!reg.test(value)){ //正则验证不通过，格式不对
+	　　　　	$(input).closest(".control-group").removeClass("success").addClass("error");
+			$(input).next().html(msg);
+			return false;
+	　　	}else{
+	　　　　	$(input).closest(".control-group").removeClass("error").addClass("success");
+			$(input).next().html("");
+			return true;
+	　　	}
+	}
+	
 	// 取消添加借阅者
 	$(".add-borrower-cancel").click(function() {
 		$(".add-borrower-form .control-group").removeClass("error success");	// 删除错误和成功样式

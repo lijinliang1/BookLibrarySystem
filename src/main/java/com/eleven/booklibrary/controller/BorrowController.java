@@ -112,7 +112,6 @@ public class BorrowController {
       modelMap.addAttribute("borrow_result", true);
       modelMap.addAttribute("success", "借书成功");
     } catch (BookException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
     return "borrow/borrow";

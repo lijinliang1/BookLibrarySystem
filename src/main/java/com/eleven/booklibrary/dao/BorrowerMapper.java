@@ -31,4 +31,5 @@ public interface BorrowerMapper {
     List<Borrower> selectByName(@Param("name")String name, @Param("offset")Long offset, @Param("length")Long length);
     
     Long getLastCardNumber();
+
 }

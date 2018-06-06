@@ -19,6 +19,6 @@ public class EmailTest {
 	 public void testSendMail() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("send-mail.xml");
         Email mail = (Email)context.getBean("simpleMail");
-        mail.sendMail("开会事宜", "于2018年6月5日开会。", "lijinliang1995@gmail.com");
+        mail.sendMail("开会事宜", "于2018年6月5日开会。", "1918528336@qq.com");
 	 }
 }

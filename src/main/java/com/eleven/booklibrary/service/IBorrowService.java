@@ -1,12 +1,10 @@
 package com.eleven.booklibrary.service;
 
-import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
-
-import com.alibaba.druid.sql.dialect.postgresql.ast.stmt.PGInsertStatement;
 import com.eleven.booklibrary.exception.BookException;
+import com.eleven.booklibrary.model.Booktype;
 import com.eleven.booklibrary.model.Borrow;
 import com.eleven.booklibrary.model.BorrowKey;
 import com.eleven.booklibrary.model.vo.BorrowBookCountVo;
@@ -38,4 +36,6 @@ public interface IBorrowService {
   
   List<BorrowBookCountVo> selectBorrowerCountList(String startTime, String endTime, Integer numbers);
   List<BorrowBookCountVo> selectBookCountList(String startTime, String endTime, Integer numbers);
+  
+  List<Borrow> selectBorrowByTime(Booktype booktype);
 }
