@@ -1,11 +1,15 @@
 package com.eleven.booklibrary.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+import com.eleven.booklibrary.model.vo.BorrowBookCountVo;
 import com.eleven.booklibrary.service.IBorrowService;
 
 /**
@@ -37,8 +41,9 @@ public class ChartController {
 	  */
 	 @RequestMapping(value = "/getBookList", method=RequestMethod.POST)
 	 @ResponseBody
-	 public Object getBookList(String startTime, String endTime) {
-		 return borrowService.selectBookCountList(startTime, endTime, numbers);
+	 public String getBookList(String startTime, String endTime) {
+		 List<BorrowBookCountVo> books = borrowService.selectBookCountList(startTime, endTime, numbers);
+		 return JSON.toJSONString(books);
 	 }
 	 
 	 /**
@@ -48,7 +53,8 @@ public class ChartController {
 	  */
 	 @RequestMapping(value = "/getBorrowerList", method=RequestMethod.POST)
 	 @ResponseBody
-	 public Object getBorrowerList(String startTime, String endTime) {
-		 return borrowService.selectBookCountList(startTime, endTime, numbers);
+	 public String getBorrowerList(String startTime, String endTime) {
+		 List<BorrowBookCountVo> books = borrowService.selectBorrowerCountList(startTime, endTime, numbers);
+		 return JSON.toJSONString(books);
 	 }
 }
