@@ -168,16 +168,13 @@ public class BorrowServiceImpl implements IBorrowService{
     return page;
   }
 
-	public List<BorrowBookCountVo> selectBorrowerCountList(String startTime, String endTime, Integer numbers) {
-		Date begin = StringOrDate.stringToDate(startTime);
-		Date end = StringOrDate.stringToDate(endTime);
-		return mapper.selectBorrowerCountList(begin, end, numbers);
+	public List<BorrowBookCountVo> selectBorrowerCountList(Date startTime, Date endTime, Integer numbers) {
+
+		return mapper.selectBorrowerCountList(startTime, endTime, numbers);
 	}
 	
-	public List<BorrowBookCountVo> selectBookCountList(String startTime, String endTime, Integer numbers) {
-		Date begin = StringOrDate.stringToDate(startTime);
-		Date end = StringOrDate.stringToDate(endTime);
-		return mapper.selectBookCountList(begin, end, numbers);
+	public List<BorrowBookCountVo> selectBookCountList(Date startTime, Date endTime, Integer numbers) {
+		return mapper.selectBookCountList(startTime, endTime, numbers);
 	}
 
 	public List<Borrow> selectBorrowByTime(Booktype booktype) {

@@ -12,10 +12,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.eleven.booklibrary.exception.BookException;
 import com.eleven.booklibrary.model.Borrow;
 import com.eleven.booklibrary.model.BorrowKey;
+import com.eleven.booklibrary.model.vo.BorrowBookCountVo;
 import com.eleven.booklibrary.model.vo.BorrowVo;
 import com.eleven.booklibrary.model.vo.Pagination;
 import com.eleven.booklibrary.service.IBorrowService;
 import com.eleven.booklibrary.util.ModelPrinter;
+import com.eleven.booklibrary.util.StringOrDate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/spring.xml"})
@@ -68,9 +70,10 @@ public class TestBorrowService {
   }
   
   @Test
-  public void testSelectListBorrow() {
-    String start = "2018-05-22";
-    String end = "2018-05-24";
-    borrowService.selectBookCountList(start, end, 2);
-  }
+  public void teatselectBookCountList() {
+	Date endTime = new Date();
+	Date startTime = StringOrDate.getDay(endTime, 2);
+	List<BorrowBookCountVo> books =  borrowService.selectBookCountList(startTime, endTime, 2);
+	System.out.println(books);
+  }  
 }

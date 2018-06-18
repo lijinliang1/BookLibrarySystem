@@ -13,6 +13,7 @@
     <result column="store_date" property="storeDate" jdbcType="TIMESTAMP" />
     <result column="borrowed_number" property="borrowedNumber" jdbcType="INTEGER" />
     <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="borrowing_rate" property="borrowingRate" jdbcType="DOUBLE" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -74,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List" >
     book_number, book_name, author, publisher, publish_date, price, book_type, store_location, 
-    store_date, borrowed_number, number
+    store_date, borrowed_number, number, borrowing_rate
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eleven.booklibrary.model.BookExample" >
     select
@@ -113,11 +114,11 @@
     insert into book (book_number, book_name, author, 
       publisher, publish_date, price, 
       book_type, store_location, store_date, 
-      borrowed_number, number)
+      borrowed_number, number, borrowing_rate)
     values (#{bookNumber,jdbcType=DECIMAL}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
       #{publisher,jdbcType=VARCHAR}, #{publishDate,jdbcType=TIMESTAMP}, #{price,jdbcType=DECIMAL}, 
       #{bookType,jdbcType=VARCHAR}, #{storeLocation,jdbcType=VARCHAR}, #{storeDate,jdbcType=TIMESTAMP}, 
-      #{borrowedNumber,jdbcType=INTEGER}, #{number,jdbcType=INTEGER})
+      #{borrowedNumber,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}), #{borrowingRate,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="com.eleven.booklibrary.model.Book" >
     insert into book
@@ -155,6 +156,9 @@
       <if test="number != null" >
         number,
       </if>
+      <if test="borrowingRate != null" >
+        borrowing_rate
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="bookNumber != null" >
@@ -189,6 +193,9 @@
       </if>
       <if test="number != null" >
         #{number,jdbcType=INTEGER},
+      </if>
+      <if test="borrowingRate != null" >
+        #{borrowingRate,jdbcType=DOUBLE}
       </if>
     </trim>
   </insert>
@@ -234,6 +241,9 @@
       <if test="record.number != null" >
         number = #{record.number,jdbcType=INTEGER},
       </if>
+       <if test="record.borrowingRate != null" >
+        borrowing_rate = #{record.borrowingRate,jdbcType=DOUBLE}
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -251,7 +261,8 @@
       store_location = #{record.storeLocation,jdbcType=VARCHAR},
       store_date = #{record.storeDate,jdbcType=TIMESTAMP},
       borrowed_number = #{record.borrowedNumber,jdbcType=INTEGER},
-      number = #{record.number,jdbcType=INTEGER}
+      number = #{record.number,jdbcType=INTEGER},
+      borrowing_rate = #{record.borrowingRate,jdbcType=DOUBLE}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -289,6 +300,9 @@
       <if test="number != null" >
         number = #{number,jdbcType=INTEGER},
       </if>
+       <if test="record.borrowingRate != null" >
+        borrowing_rate = #{record.borrowingRate,jdbcType=DOUBLE}
+      </if>
     </set>
     where book_number = #{bookNumber,jdbcType=DECIMAL}
   </update>
@@ -303,7 +317,8 @@
       store_location = #{storeLocation,jdbcType=VARCHAR},
       store_date = #{storeDate,jdbcType=TIMESTAMP},
       borrowed_number = #{borrowedNumber,jdbcType=INTEGER},
-      number = #{number,jdbcType=INTEGER}
+      number = #{number,jdbcType=INTEGER},
+      borrowing_rate = #{borrowingRate,jdbcType=DOUBLE}
     where book_number = #{bookNumber,jdbcType=DECIMAL}
   </update>
 </mapper>

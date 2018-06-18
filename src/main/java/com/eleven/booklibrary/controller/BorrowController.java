@@ -1,6 +1,7 @@
 package com.eleven.booklibrary.controller;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,7 +107,7 @@ public class BorrowController {
     vo.setBorrowerNumber(borrowerNumber); 
     vo.setBookName(book.getBookName());
     vo.setBorrowerName(borrower.getName());
-    vo.setBorrowedDate(Calendar.getInstance().getTime());
+    vo.setBorrowedDate(new Date());
     try {
       borrowService.borrowBook(vo);
       modelMap.addAttribute("borrow_result", true);

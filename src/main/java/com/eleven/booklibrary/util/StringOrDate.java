@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 
 public class StringOrDate {
@@ -52,5 +53,13 @@ public class StringOrDate {
     	if(partern.isEmpty()) return null;
     	DateTimeFormatter df = DateTimeFormatter.ofPattern(partern);
     	return df.format(dateTime);
+    }
+    
+    public static Date getDay(Date date, int n) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_MONTH, -n);
+        date = calendar.getTime();
+        return date;
     }
 }

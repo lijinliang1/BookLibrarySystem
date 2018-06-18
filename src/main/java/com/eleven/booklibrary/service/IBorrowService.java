@@ -1,7 +1,7 @@
 package com.eleven.booklibrary.service;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import com.eleven.booklibrary.exception.BookException;
 import com.eleven.booklibrary.model.Booktype;
@@ -34,8 +34,8 @@ public interface IBorrowService {
   
   Pagination countByKey(BorrowKey key, Pagination pagination);
   
-  List<BorrowBookCountVo> selectBorrowerCountList(String startTime, String endTime, Integer numbers);
-  List<BorrowBookCountVo> selectBookCountList(String startTime, String endTime, Integer numbers);
+  List<BorrowBookCountVo> selectBorrowerCountList(Date startTime, Date endTime, Integer numbers);
+  List<BorrowBookCountVo> selectBookCountList(Date startTime, Date endTime, Integer numbers);
   
   List<Borrow> selectBorrowByTime(Booktype booktype);
 }

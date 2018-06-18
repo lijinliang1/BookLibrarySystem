@@ -24,6 +24,8 @@ public class Book {
     private Integer borrowedNumber;
 
     private Integer number;
+    
+    private Double borrowingRate;
 
     public Long getBookNumber() {
         return bookNumber;
@@ -112,4 +114,18 @@ public class Book {
     public void setNumber(Integer number) {
         this.number = number;
     }
+
+	/**
+	 * @return the borrowingRate
+	 */
+	public Double getBorrowingRate() {
+		return borrowingRate;
+	}
+
+	/**
+	 * @param borrowingRate the borrowingRate to set
+	 */
+	public void setBorrowingRate(Double borrowingRate) {
+		this.borrowingRate = borrowingRate;
+	}
 }

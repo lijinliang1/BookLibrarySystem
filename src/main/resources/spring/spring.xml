@@ -86,7 +86,8 @@
     <!-- 增加调用的触发器，触发时间 -->
     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="jobDetail" />
-        <property name="cronExpression" value="0 0 10 * * ?" />
+       <!--  <property name="cronExpression" value="0 0 10 * * ?" /> -->
+        <property name="cronExpression" value="0 */1 * * * ?" />
     </bean>
 
     <!-- 设置调度 -->
@@ -96,7 +97,13 @@
                 <ref bean="cronTrigger" />
             </list>
         </property>
-        <property name="taskExecutor" ref="executor" />
+        <property name="taskExecutor" ref="executor" /> 
+        <property name="quartzProperties"> 
+			<props>
+				<!-- 主要是这个参数 -->
+				<prop key="org.quartz.scheduler.skipUpdateCheck">true</prop> 
+			</props>
+		</property>
     </bean>
 
     <!-- 定时任务end -->

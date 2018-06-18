@@ -244,35 +244,42 @@
     where book_number = #{bookNumber,jdbcType=DECIMAL}
       and borrower_number = #{borrowerNumber,jdbcType=DECIMAL}
   </update>
-  <select id="selectBorrowerCountList" resultType="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
+  
+  <resultMap id="BaseResultVOMap" type="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
+    <result column="borrower_name" property="borrowerName" jdbcType="VARCHAR" />
+    <result column="book_name" property="bookName" jdbcType="VARCHAR" />
+    <result column="count(*)" property="borrowTimes" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="selectBorrowerCountList" resultMap="BaseResultVOMap" >
     select borrower_name,count(*) 
     from borrow 
     where 
     	1=1
     	<if test="startTime!=null and startTime!=''">
-		and borrow_date &gt;= #{startTime}
+		and borrowed_date &gt;= #{startTime}
 		</if>
 		<if test="endTime!=null and endTime!=''">
-		and borrow_date &lt;= #{endTime}
+		and borrowed_date &lt;= #{endTime}
 		</if>
     group by borrower_name 
     order by count(*) desc
     limit ${numbers}
   </select>
-  <select id="selectBookCountList" resultType="com.eleven.booklibrary.model.vo.BorrowBookCountVo" >
+  <select id="selectBookCountList" resultMap="BaseResultVOMap">
     select book_name,count(*) 
     from borrow 
     where
     	1=1
-    	<if test="startTime!=null and startTime!=''">
-		and borrow_date &gt;= #{startTime}
+    	<if test="startTime!=null">
+		and borrowed_date &gt;= #{startTime}
 		</if>
-		<if test="endTime!=null and endTime!=''">
-		and borrow_date &lt;= #{endTime}
+		<if test="endTime!=null">
+		and borrowed_date &lt;= #{endTime}
 		</if>
     group by book_name 
     order by count(*) desc
-    limit ${numbers}
+    limit #{numbers}
   </select>
   
   <select id="selectBorrowByTime" resultMap="BaseResultMap" parameterType="com.eleven.booklibrary.model.Booktype">

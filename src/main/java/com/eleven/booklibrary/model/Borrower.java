@@ -24,6 +24,8 @@ public class Borrower {
     private Integer borrowed;
 
     private Integer isLost;
+    
+    private Integer borrwedTimes;
 
     public Long getCardNumber() {
         return cardNumber;
@@ -112,4 +114,18 @@ public class Borrower {
     public void setIsLost(Integer isLost) {
         this.isLost = isLost;
     }
+
+	/**
+	 * @return the borrwedTimes
+	 */
+	public Integer getBorrwedTimes() {
+		return borrwedTimes;
+	}
+
+	/**
+	 * @param borrwedTimes the borrwedTimes to set
+	 */
+	public void setBorrwedTimes(Integer borrwedTimes) {
+		this.borrwedTimes = borrwedTimes;
+	}
 }
